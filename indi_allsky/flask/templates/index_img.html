@@ -158,12 +158,26 @@ $( document ).ready(function() {
 });
 
 </script>
+<script src="{{ url_for('indi_allsky.static', filename='js/capture_buttons.js', v='5') }}"></script>
 {% endblock %}
 
 {% block content %}
 <div class="container h-100">
     <div class="row">
         <div class="text-muted text-center" id="message">Loading...</div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-12 text-center">
+            <button id="btn-capture-one" class="btn btn-outline-info btn-sm me-2" onclick="captureOne()">Capture One</button>
+            <button id="btn-live-loop" class="btn btn-outline-success btn-sm me-2" onclick="toggleLiveLoop()">Live View</button>
+            <button class="btn btn-outline-secondary btn-sm me-2" data-bs-toggle="collapse" data-bs-target="#slider-panel-wrap">Camera Settings</button>
+            <span id="live-status" class="text-muted small"></span>
+        </div>
+    </div>
+    <div class="collapse" id="slider-panel-wrap">
+        <div class="card card-body bg-dark border-secondary p-2 mb-2">
+            <div id="slider-panel"></div>
+        </div>
     </div>
     <div class="row h-75 align-items-center">
         <div class="col-12 text-center">
